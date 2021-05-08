@@ -1,16 +1,24 @@
-import "./App.css";
-import ChampionList from "./screens/champion.list.component";
+import ChampionList from "./screens/champion-list/champion.list.component";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import styled from "styled-components";
+import ChampionDetail from "./screens/champion-detail/champion.detail.component";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Test</h1>
+    <AppContainer>
+      <h1>Header</h1>
       <Router>
         <Route exact path="/" component={ChampionList} />
+        <Route exact path="/champions" component={ChampionList} />
+        <Route exact path="/champions/:championId" component={ChampionDetail} />
       </Router>
-    </div>
+    </AppContainer>
   );
 }
+
+const AppContainer = styled.div`
+  padding: 20px;
+`;
 
 export default App;

@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useMemo } from "react";
-import ChampionCell from "../components/champion.cell.component";
+import ChampionCell from "../../components/champion.cell.component";
 
-import { getChampions } from "./../league_api/champions.api";
+import { getChampions } from "../../league_api/champions.api";
+import { ListContainer } from "./champion.list.styles";
 
 const ChampionList = () => {
   const [champions, setChampions] = useState([]);
@@ -33,19 +34,12 @@ const ChampionList = () => {
         }}
       />
 
-      <div
-        style={{
-          justifyContent: "space-between",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-          gridGap: 20,
-        }}
-      >
+      <ListContainer>
         {filteredKeysMemoized.map((championKey) => {
           const champion = champions[championKey];
           return <ChampionCell key={champion.name} champion={champion} />;
         })}
-      </div>
+      </ListContainer>
     </div>
   );
 };

@@ -16,7 +16,7 @@ const ChampionCell = ({ champion }) => {
 
         <div style={{ flex: 1 }} />
 
-        <Button to={`/champion/${id}`}>Test</Button>
+        <Button to={`/champions/${id}`}>Details</Button>
       </Wrapper>
     </div>
   );

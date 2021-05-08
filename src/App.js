@@ -1,28 +1,14 @@
 import "./App.css";
-
-import { useEffect, useState } from "react";
-import { getChampions } from "./league_api/champions.api";
+import ChampionList from "./screens/champion.list.component";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
-  const [champions, setChampions] = useState([]);
-
-  useEffect(() => {
-    getChampions().then((response) => {
-      console.log(response);
-      if (response.ok) {
-        setChampions(response.data.data);
-      }
-    });
-  }, []);
-
-  const championKeys = Object.keys(champions);
   return (
     <div className="App">
       <h1>Test</h1>
-
-      {championKeys.map((championKey) => (
-        <h4 key={champions[championKey].name}>{champions[championKey].name}</h4>
-      ))}
+      <Router>
+        <Route exact path="/" component={ChampionList} />
+      </Router>
     </div>
   );
 }

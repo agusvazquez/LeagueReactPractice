@@ -3,8 +3,6 @@ import ChampionCell from "../components/champion.cell.component";
 
 import { getChampions } from "./../league_api/champions.api";
 
-import styled from "styled-components";
-
 const ChampionList = () => {
   const [champions, setChampions] = useState([]);
   const [searchText, setSearchText] = useState("");

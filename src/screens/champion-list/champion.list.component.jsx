@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useMemo } from "react";
-import ChampionCell from "../../components/champion.cell.component";
+import ChampionCell from "../../components/champion-cell/champion.cell.component";
 
 import { getChampions } from "../../league_api/champions.api";
-import { ListContainer } from "./champion.list.styles";
+import { ListContainer, Input } from "./champion.list.styles";
 
 const ChampionList = () => {
   const [champions, setChampions] = useState([]);
@@ -10,7 +10,6 @@ const ChampionList = () => {
 
   useEffect(() => {
     getChampions().then((response) => {
-      console.log(response);
       if (response.ok) {
         setChampions(response.data.data);
       }
@@ -27,11 +26,12 @@ const ChampionList = () => {
 
   return (
     <div>
-      <input
+      <Input
         value={searchText}
         onChange={(event) => {
           setSearchText(event.target.value);
         }}
+        placeholder="Search a champion name"
       />
 
       <ListContainer>

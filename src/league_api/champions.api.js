@@ -7,3 +7,7 @@ export const getChampionFullImage = (championId) => {
 export const getChampions = () => {
   return api.get("/champion.json");
 };
+
+export const getChampionsDetail = (championId) => {
+  return api.get(`/champion/${championId}.json`);
+};

@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import styled from "styled-components";
 import ChampionDetail from "./screens/champion-detail/champion.detail.component";
+import Header from "./components/header/header.component";
 
 function App() {
   return (
     <AppContainer>
-      <h1>Header</h1>
       <Router>
+        <Route path="/" component={Header} />
         <Route exact path="/" component={ChampionList} />
         <Route exact path="/champions" component={ChampionList} />
         <Route exact path="/champions/:championId" component={ChampionDetail} />
@@ -19,6 +20,7 @@ function App() {
 
 const AppContainer = styled.div`
   padding: 20px;
+  background-color: black;
 `;
 
 export default App;

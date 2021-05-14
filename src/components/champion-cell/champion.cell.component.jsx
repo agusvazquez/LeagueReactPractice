@@ -4,12 +4,11 @@ import {
   ChampionContainer,
   Wrapper,
   Title,
-  Subtitle,
   Button,
 } from "./champion.cell.styles";
 
 const ChampionCell = ({ champion }) => {
-  const { id, name, title } = champion;
+  const { id, name } = champion;
   return (
     <ChampionContainer
       style={{

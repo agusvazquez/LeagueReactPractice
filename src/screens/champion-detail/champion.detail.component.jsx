@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import {
   getChampionFullImage,
   getChampionsDetail,
@@ -27,8 +28,6 @@ const ChampionDetail = ({ match }) => {
     });
   }, [championId]);
 
-  console.log(championData);
-
   if (championData == null) return <div />;
 
   const {
@@ -36,7 +35,6 @@ const ChampionDetail = ({ match }) => {
     title,
     allytips,
     enemytips,
-    image,
     info,
     lore,
     partype,
@@ -47,6 +45,12 @@ const ChampionDetail = ({ match }) => {
     stats,
     tags,
   } = championData;
+
+  console.log(info);
+  console.log(passive);
+  console.log(recommended);
+  console.log(spells);
+  console.log(stats);
 
   //info: build a foda matrix or something
   // passive, spells, stats
@@ -65,27 +69,27 @@ const ChampionDetail = ({ match }) => {
 
       <SectionHeader>Ally Tips</SectionHeader>
       <ul>
-        {allytips.map((tip) => {
-          return <Tip>{tip}</Tip>;
+        {allytips.map((tip, index) => {
+          return <Tip key={index}>{tip}</Tip>;
         })}
       </ul>
 
       <SectionHeader>Enemy Tips</SectionHeader>
       <ul>
-        {enemytips.map((tip) => {
-          return <Tip>{tip}</Tip>;
+        {enemytips.map((tip, index) => {
+          return <Tip key={index}>{tip}</Tip>;
         })}
       </ul>
 
       <SectionHeader>Tags</SectionHeader>
-      {tags.map((tag) => {
-        return <Text>{tag}</Text>;
+      {tags.map((tag, index) => {
+        return <Text key={index}>{tag}</Text>;
       })}
 
       <SectionHeader>Skins</SectionHeader>
       {skins.map((skin) => {
-        const { name } = skin;
-        return <Text>{name}</Text>;
+        const { name, id } = skin;
+        return <Text key={id}>{name}</Text>;
       })}
     </div>
   );
